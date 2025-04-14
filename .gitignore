@@ -1,0 +1,10 @@
+bin/
+cmd/
+prm/
+BlinkingLedsAsm_Data/
+ASM_layout.hwl
+Default.mem
+Monitor.ini
+readme.txt
+Simulator.hwc
+Simulator.ini
