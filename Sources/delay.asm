@@ -1,6 +1,5 @@
 ; export symbols
   XDEF delay_500ms;
-  XDEF add2zahlen;
 ; import symbols
   XREF IMAX
 ; RAM: Variable data section
@@ -19,8 +18,11 @@ waitO:  LDY  #IMAX                      ; (Uses two nested counter loops with re
 waitI:  DBNE Y, waitI                   ; --- Decrement Y and branch to waitI if not equal to 0
         DBNE X, waitO                   ; --- Decrement X and branch to waitO if not equal to 0 
         RTS 
-
-add2zahlen:
-  NOP;
-  RTS        
+        
+        ; Pseudo C Code : 
+        ; for(int i=2048;i>0;--i){
+        ;   for(int i=2048;i>0;--i){
+        ;
+        ;   } 
+        ; }     
   

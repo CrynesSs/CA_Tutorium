@@ -66,13 +66,8 @@ to_upper:
   DEX ; Decrementieren des X Registers um 1
   STAB X;
   INX; Incrementieren des X Registers um 1
-  
-  
- 
- 
+
   BRA to_upper; Wir springen immer zum Anfang unsere Funktion zurück
-;return: Error: Dublicate Label
-;  RTS
 
 ; X Register den Pointer auf den SRC String
 ; Y Register den Pointer auf den Target String
@@ -99,7 +94,16 @@ return_copy:
 ; Both Registers are de facto empty and we need to get our Variables from the Stack 
 copy_string_stack:
 ; Function Head  
-  ; Increased the SP by 2
+  
+  ; Current Stack before this Operation : 
+  ; **********************************************
+  ; Return Address [2Bytes] -> Stack Pointer points to the Top of the Stack currently
+  ; Variable Y [2Bytes]
+  ; Variable X [2Bytes]
+  ; Old Variable Y [2Bytes]
+  ; Old Variable X [2Bytes]
+  ; **********************************************
+  ; Increased the SP by 2, because right now it is pointing to the return Address of this Subroutine;
   LEAS 2,+SP
   ;Load the Y Register Value from the Stack
   PULY;
