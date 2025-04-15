@@ -19,8 +19,9 @@
         XREF delay_500ms     
 	
         
-        XREF initLed,initSevenSeg;
+        XREF initLed,initSevenSeg
         XREF exampleUsage
+        XREF initPortHinterrupts;
 
 ; include derivative specific macros
         INCLUDE 'mc9s12dp256.inc'
@@ -47,7 +48,10 @@ Entry:
         CLI                             ; Enable interrupts, needed for debugger
         
         JSR initLed;
+        
         JSR initSevenSeg;
+        
+        JSR initPortHinterrupts; 
         
         JSR exampleUsage;
 
