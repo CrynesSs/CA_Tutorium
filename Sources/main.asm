@@ -18,7 +18,7 @@
         ; From delay.asm
         XREF delay_500ms     
 	
-        
+        XREF initTimer;
         XREF initLed,initSevenSeg
         XREF exampleUsage
         XREF initPortHinterrupts;
@@ -53,14 +53,16 @@ Entry:
         
         JSR initPortHinterrupts; 
         
+        JSR initTimer;
+        
         JSR exampleUsage;
 
         
         
 loop:   
-		COM  PORTB                      ; Complement Port B: Toggle LEDs (Loop takes approx. 12 Mio CPU cycles => 0,5sec)
+		    ;COM  PORTB                      ; Complement Port B: Toggle LEDs (Loop takes approx. 12 Mio CPU cycles => 0,5sec)
 
-        JSR delay_500ms;
+        ;JSR delay_500ms;
         
         BRA loop                        ; Branch to loop
 
