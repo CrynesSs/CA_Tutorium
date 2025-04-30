@@ -52,7 +52,7 @@
 ; NOTE : Alle Register waren im Tutorium verkehrt herum geschrieben. 
 ; Also PWMPER0 <-> PWMPER1...
 ; In dieser Version korrigiert...
-initPWM:
+initPWM:	
   ; Port P Soll Output sein für das PWM Signal
   MOVB #$FF,DDRP;
   ; Weil wir Channel 7,5,3,1 benutzen
@@ -62,8 +62,8 @@ initPWM:
   MOVB #$FF,PPSP
   ; Ab Hier nur noch PWM Init
   ; Magic Number für die Period Length 1s
-  MOVB #$53,PWMPER0;
-  MOVB #$07,PWMPER1;
+  MOVB #$07,PWMPER0;
+  MOVB #$53,PWMPER1;
   ; Magic Number für die Period Length 10s
   MOVB #$49,PWMPER4;
   MOVB #$3E,PWMPER5;
