@@ -12,12 +12,13 @@
 ; export symbols
         XDEF Entry, main
         XDEF IMAX
+       
 
 ; import symbols
         XREF __SEG_END_SSTACK           ; End of stack
         ; From delay.asm
         XREF delay_500ms     
-	
+	   	XREF initPWM;
         XREF initTimer;
         XREF initLed,initSevenSeg
         XREF exampleUsage
@@ -55,12 +56,14 @@ Entry:
         
         JSR initTimer;
         
+        JSR initPWM;
+        
         JSR exampleUsage;
 
         
         
 loop:   
-		    ;COM  PORTB                      ; Complement Port B: Toggle LEDs (Loop takes approx. 12 Mio CPU cycles => 0,5sec)
+		;COM  PORTB                      ; Complement Port B: Toggle LEDs (Loop takes approx. 12 Mio CPU cycles => 0,5sec)
 
         ;JSR delay_500ms;
         
