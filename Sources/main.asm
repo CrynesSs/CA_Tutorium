@@ -23,6 +23,7 @@
         XREF initLed,initSevenSeg
         XREF exampleUsage
         XREF initPortHinterrupts;
+		XREF test128bitFunctions;
 
 ; include derivative specific macros
         INCLUDE 'mc9s12dp256.inc'
@@ -59,6 +60,8 @@ Entry:
         JSR initPWM;
         
         JSR exampleUsage;
+        
+        JSR test128bitFunctions;
 
         
         
